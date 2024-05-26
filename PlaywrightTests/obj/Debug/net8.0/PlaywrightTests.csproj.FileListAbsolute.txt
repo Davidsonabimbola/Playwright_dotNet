@@ -402,3 +402,4 @@
 /Users/admin/demoplaywright/PlaywrightTests/obj/Debug/net8.0/PlaywrightTests.pdb
 /Users/admin/demoplaywright/PlaywrightTests/obj/Debug/net8.0/PlaywrightTests.genruntimeconfig.cache
 /Users/admin/demoplaywright/PlaywrightTests/obj/Debug/net8.0/ref/PlaywrightTests.dll
+/Users/admin/demoplaywright/PlaywrightTests/obj/Debug/net8.0/PlaywrightTests.sourcelink.json

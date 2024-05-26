@@ -10,6 +10,7 @@ using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 using Microsoft.VisualBasic;
 using NUnit.Framework;
+using PlaywrightTests;
 using PlaywrightTests.Models;
 using System.Threading.Tasks;
 
@@ -32,18 +33,32 @@ namespace PlaywrightTests
 
 
         [Test]
-        public async Task TestLoginFunctionality()
+        [TestCaseSource(nameof(Login))]
+        public async Task TestLoginFunctionality(LoginModel Login)
         {
             var loginPage = new LoginPage(_page);
             await _page.GotoAsync("http://www.eaapp.somee.com");
             await loginPage.ClickLogin();
-            await loginPage.Login("your_username", "your_password");
+            // await loginPage.Login("Davids", "12345");
+            await loginPage.Login(Login.Username, Login.Password);
+            await loginPage.Check_Employee_Details();
 
             // bool isEmployeeDetailsExist = await loginPage.IsEmployeeDetailsExist();
             // Assert.IsTrue(isEmployeeDetailsExist, "Employee Details link should be visible after logging in.");
         }
+
+        public static IEnumerable<LoginModel> Login()
+        {
+            yield return new LoginModel()
+            {
+                Username = "admin",
+                Password = "password"
+            };
+        }
     }
 }
+
+
 
 
 

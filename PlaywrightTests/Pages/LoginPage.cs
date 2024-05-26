@@ -1,6 +1,6 @@
 using Microsoft.Playwright;
-using NUnit.Framework;
-using System.Threading.Tasks;
+// using NUnit.Framework;
+// using System.Threading.Tasks;
 
 namespace PlaywrightTests.Models;
 
@@ -22,15 +22,7 @@ public class LoginPage
         _txtPassword = page.Locator("[id='Password']");
         _btnLogin = page.Locator("[class='btn btn-default']");
         _lnkEmployeeDetails = page.Locator("text='Employee Details'");
-
-
     }
-
-
-    // public async Task GoToAsync()
-    // {
-    //     await _page.GoToAsync("http://www.eaapp.somee.com");
-    // }
 
     public async Task ClickLogin() => await _lnkLogin.ClickAsync();
     public async Task Login(string username, string password)
@@ -41,7 +33,13 @@ public class LoginPage
 
     }
 
-    public async Task<bool> IsEmployeeDetailsExist() => await _lnkEmployeeDetails.IsVisibleAsync();
+    //public async Task<bool> IsEmployeeDetailsExist() => await _lnkEmployeeDetails.IsVisibleAsync();
+    public async Task Check_Employee_Details()
+    {
+        await _lnkEmployeeDetails.IsVisibleAsync();
+
+    }
+
 }
 
 
